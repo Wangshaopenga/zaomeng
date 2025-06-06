@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://cfu5q44serobl"]
+
+[ext_resource type="Script" uid="uid://crilynnb8atwt" path="res://scenes/game/levels/level_1.gd" id="1_kdlgo"]
+[ext_resource type="Texture2D" uid="uid://i30tugaq07w8" path="res://assets/Level/Level_1/183.png" id="1_x1c7m"]
+[ext_resource type="Texture2D" uid="uid://dexoawty5edc1" path="res://assets/Level/Level_1/19_1.png" id="2_kdlgo"]
+[ext_resource type="Texture2D" uid="uid://cxpfeih5koq67" path="res://assets/Level/Level_1/48.png" id="3_1bryu"]
+[ext_resource type="PackedScene" uid="uid://bs0jjdee4d7sd" path="res://scenes/game/roles/role1/player.tscn" id="4_dxp7b"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_unvbt"]
+texture = ExtResource("1_x1c7m")
+0:0/size_in_atlas = Vector2i(300, 10)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(2321.9, 79.3388, 2317.77, -72.7273, 2098.76, -71.0744, 2031.82, -1.65289, -558.264, -1.65289, -635.95, -74.3802, -845.868, -73.5537, -919.677, -2.73206, -1037.16, -4.7811, -1121.85, -78.5465, -1326.86, -76.0331, -1405.98, -2.04904, -2399.08, 0, -2400.45, 78.5465)
+
+[sub_resource type="TileSet" id="TileSet_2u4xi"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_unvbt")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1xna"]
+size = Vector2(242, 596.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnhhk"]
+size = Vector2(242, 596.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scglh"]
+size = Vector2(4738, 94)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_kdlgo")
+metadata/_edit_horizontal_guides_ = [520.0, 590.0]
+
+[node name="Tilemap" type="Node2D" parent="."]
+position = Vector2(8, 6)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="map" type="TileMapLayer" parent="Tilemap"]
+tile_map_data = PackedByteArray(0, 0, 149, 0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_2u4xi")
+
+[node name="Decorations" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Background" type="ParallaxBackground" parent="Decorations"]
+
+[node name="Sky" type="ParallaxLayer" parent="Decorations/Background"]
+position = Vector2(0, -2)
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decorations/Background/Sky"]
+position = Vector2(721, 246)
+texture = ExtResource("2_kdlgo")
+
+[node name="Forgeground" type="ParallaxBackground" parent="Decorations"]
+
+[node name="Forest" type="ParallaxLayer" parent="Decorations/Forgeground"]
+position = Vector2(6, 0)
+
+[node name="48" type="Sprite2D" parent="Decorations/Forgeground/Forest"]
+position = Vector2(2472, 382)
+texture = ExtResource("3_1bryu")
+
+[node name="Player" parent="." instance=ExtResource("4_dxp7b")]
+position = Vector2(470, 295)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-2, -47)
+limit_left = 0
+limit_bottom = 590
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.6
+drag_bottom_margin = 0.6
+editor_draw_drag_margin = true
+
+[node name="Scope" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(-1, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="left" type="CollisionShape2D" parent="Scope"]
+position = Vector2(-120, 244)
+shape = SubResource("RectangleShape2D_o1xna")
+
+[node name="right" type="CollisionShape2D" parent="Scope"]
+position = Vector2(4815, 244)
+shape = SubResource("RectangleShape2D_nnhhk")
+
+[node name="top" type="CollisionShape2D" parent="Scope"]
+position = Vector2(2345, -95)
+shape = SubResource("RectangleShape2D_scglh")
