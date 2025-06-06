@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfu5q44serobl"]
+[gd_scene load_steps=13 format=3 uid="uid://cfu5q44serobl"]
 
 [ext_resource type="Script" uid="uid://crilynnb8atwt" path="res://scenes/game/levels/level_1.gd" id="1_kdlgo"]
 [ext_resource type="Texture2D" uid="uid://i30tugaq07w8" path="res://assets/Level/Level_1/183.png" id="1_x1c7m"]
@@ -17,13 +17,23 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_unvbt")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1xna"]
-size = Vector2(242, 596.75)
+size = Vector2(242, 810.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnhhk"]
-size = Vector2(242, 596.75)
+size = Vector2(242, 814.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scglh"]
 size = Vector2(4738, 94)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdlgo"]
+texture = ExtResource("1_x1c7m")
+116:5/size_in_atlas = Vector2i(11, 4)
+116:5/0 = 0
+116:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-87.821, -31.9947, 87.5576, -32.2581, 88.0843, 31.7314, -88.0843, 31.7314)
+
+[sub_resource type="TileSet" id="TileSet_1bryu"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_kdlgo")
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_kdlgo")
@@ -65,29 +75,34 @@ texture = ExtResource("3_1bryu")
 position = Vector2(470, 295)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false
 position = Vector2(-2, -47)
 limit_left = 0
+limit_top = 0
 limit_bottom = 590
+limit_smoothed = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_top_margin = 0.6
-drag_bottom_margin = 0.6
 editor_draw_drag_margin = true
 
 [node name="Scope" type="StaticBody2D" parent="."]
 visible = false
 position = Vector2(-1, 0)
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="left" type="CollisionShape2D" parent="Scope"]
-position = Vector2(-120, 244)
+position = Vector2(-119, 133.188)
 shape = SubResource("RectangleShape2D_o1xna")
 
 [node name="right" type="CollisionShape2D" parent="Scope"]
-position = Vector2(4815, 244)
+position = Vector2(4815, 135.188)
 shape = SubResource("RectangleShape2D_nnhhk")
 
 [node name="top" type="CollisionShape2D" parent="Scope"]
-position = Vector2(2345, -95)
+position = Vector2(2345, -240)
 shape = SubResource("RectangleShape2D_scglh")
+
+[node name="Test" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 28, 0, 25, 0, 0, 0, 116, 0, 5, 0, 0, 0)
+tile_set = SubResource("TileSet_1bryu")
