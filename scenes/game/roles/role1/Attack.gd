@@ -2,8 +2,10 @@ extends State
 
 # 能否进行下段攻击
 var next_attack_requested := false
+
 # 当前处于第几段攻击
 var attack_index := 1
+
 # 是否在空中攻击
 var is_air_attack := false
 
@@ -21,7 +23,9 @@ func enter(params := {}) -> void:
 
 func update(delta: float) -> void:
 	if not is_air_attack:
-		player.velocity.x = 0 # 地面攻击时持续锁定水平速度
+		# 地面攻击时持续锁定水平速度
+		player.velocity.x = 0
+		
 	if Input.is_action_just_pressed("jump") and player.jump_count > 0:
 		if player.jump_count == 2:
 			state_machine.change_state("Jump1")
@@ -57,3 +61,7 @@ func update(delta: float) -> void:
 					state_machine.change_state("Idle")
 			4:
 				state_machine.change_state("Idle")
+
+# 可以打断攻击,减少僵直,如果不想可以把上面jump判断移动到动画播放完之后
+func exit():
+	player.special_effect.visible = false

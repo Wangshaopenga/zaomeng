@@ -23,6 +23,7 @@ var jump_count := 2
 @onready var graphics: Node2D = $Graphics
 @onready var jump_buffer_timer: Timer = $JumpBufferTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var special_effect: Sprite2D = $Graphics/SpecialEffect
 
 
 func _ready() -> void:
@@ -42,6 +43,14 @@ func _physics_process(delta: float) -> void:
 			state_machine.change_state("Jump1")
 			return
 	move_and_slide()
+
+
+func get_dir() -> int:
+	if Input.is_action_just_pressed("move_left"):
+		return 1
+	if Input.is_action_just_pressed("move_left"):
+		return - 1
+	return 0
 
 
 func change_anim(_name: String, library: String = "", callback = null) -> void:

@@ -4,7 +4,7 @@ var velocity = Vector2.ZERO # 水平和垂直速度
 
 
 func enter(params := {}) -> void:
-	player.change_anim( "jump2")
+	player.change_anim("jump2")
 	player.jump_count = 0
 
 

@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://d04mcdpy4n1uy"]
+
+[ext_resource type="Texture2D" uid="uid://g6yq1sgxghnb" path="res://assets/HeroPicture/Role2AllEquipment/Role_2_Body_bsp.png" id="1_amxad"]
+[ext_resource type="Script" uid="uid://bhoea7wr3asos" path="res://script/resource/Hurtbox.gd" id="2_wd1fo"]
+[ext_resource type="Script" uid="uid://rd8oj5v71skj" path="res://script/resource/Hitbox.gd" id="3_g65m0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_po78k"]
+radius = 17.5
+height = 92.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aku7s"]
+size = Vector2(58, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11266"]
+size = Vector2(58, 97)
+
+[node name="Ememytest" type="Node2D"]
+
+[node name="Graphics" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Graphics"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Graphics/CharacterBody2D"]
+texture = ExtResource("1_amxad")
+region_enabled = true
+region_rect = Rect2(0, 0, 200, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/CharacterBody2D"]
+position = Vector2(13, 7)
+shape = SubResource("CapsuleShape2D_po78k")
+
+[node name="Hurtbox" type="Area2D" parent="Graphics"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("2_wd1fo")
+metadata/_custom_type_script = "uid://bhoea7wr3asos"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Hurtbox"]
+position = Vector2(16, 7)
+shape = SubResource("RectangleShape2D_aku7s")
+
+[node name="Hitbox" type="Area2D" parent="Graphics"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("3_g65m0")
+metadata/_custom_type_script = "uid://rd8oj5v71skj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/Hitbox"]
+position = Vector2(16, 7.5)
+shape = SubResource("RectangleShape2D_11266")
+
+[connection signal="hit" from="Graphics/Hitbox" to="Graphics/Hurtbox" method="_on_hitbox_hit"]

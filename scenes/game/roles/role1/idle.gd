@@ -14,7 +14,7 @@ func update(delta: float) -> void:
 		return
 
 	# 检测输入切换到移动状态
-	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+	if Input.get_axis("move_left", "move_right") != 0:
 		state_machine.change_state("Run")
 		return
 
