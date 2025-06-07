@@ -10,6 +10,7 @@ func enter(params := {}) -> void:
 
 func update(delta: float) -> void:
 	velocity = player.velocity
+	
 	velocity.y = player.JUMP_VELOCITY / 1.5
 
 	if player.is_on_floor():

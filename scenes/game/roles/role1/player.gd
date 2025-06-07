@@ -5,6 +5,8 @@ const RUN_SPEED := 240.0
 const JUMP_VELOCITY := -540.0
 const GRAVITY := 980
 
+@export var atk_combo := false
+
 # 人物朝向,1:右 -1:左
 var direction := 1:
 	set(v):
@@ -36,12 +38,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y += GRAVITY * delta
 	else:
 		if jump_buffer_timer.time_left > 0 and jump_count == 2:
-			print(2)
 			jump_buffer_timer.stop()
 			state_machine.change_state("Jump1")
 			return
 	move_and_slide()
-
 
 
 func change_anim(_name, callback = null) -> void:

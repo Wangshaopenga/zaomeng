@@ -12,11 +12,10 @@ func enter(params := {}) -> void:
 func update(delta: float) -> void:
 	velocity = player.velocity
 
-
 	if Input.is_action_just_pressed("jump") and player.jump_count > 0:
 		state_machine.change_state("Jump2")
 		return
-		
+
 	if velocity.y > 0:
 		state_machine.change_state("Fall")
 		return
@@ -29,3 +28,5 @@ func update(delta: float) -> void:
 		velocity.x = 0
 
 	player.velocity = velocity
+
+	state_machine.atkInputEvent({ "attack_index": 2 })

@@ -8,19 +8,20 @@ func enter(params = {}) -> void:
 
 
 func update(delta: float) -> void:
-	velocity = player.velocity
-
-	var dir = Input.get_axis("move_left", "move_right")
-	player.direction = dir
-
 	if Input.is_action_just_pressed("jump") and player.jump_count > 0:
 		state_machine.change_state("Jump1")
 		return
 
+	state_machine.atkInputEvent({ "is_run": true })
+
+	
 	if player.velocity.y > 0:
 		state_machine.change_state("Fall")
 		return
-		
+
+	velocity = player.velocity
+	var dir = Input.get_axis("move_left", "move_right")
+	player.direction = dir
 	if dir != 0:
 		velocity.x = dir * player.RUN_SPEED
 	else:

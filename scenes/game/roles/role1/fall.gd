@@ -34,3 +34,5 @@ func update(delta: float) -> void:
 		velocity.x = 0
 
 	player.velocity = velocity
+
+	state_machine.atkInputEvent({ "attack_index": 2 })
