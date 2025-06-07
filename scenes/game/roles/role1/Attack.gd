@@ -51,4 +51,9 @@ func update(delta: float) -> void:
 				else:
 					state_machine.change_state("Idle")
 			3:
+				if next_attack_requested:
+					state_machine.change_state("Attack", { "attack_index": 4 })
+				else:
+					state_machine.change_state("Idle")
+			4:
 				state_machine.change_state("Idle")
