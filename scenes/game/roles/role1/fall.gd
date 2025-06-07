@@ -4,7 +4,7 @@ var velocity := Vector2.ZERO
 
 
 func enter(params := {}) -> void:
-	player.animation_player.play("fall")
+	player.change_anim("fall")
 
 
 func update(delta: float) -> void:

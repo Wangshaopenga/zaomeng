@@ -12,9 +12,8 @@ func update(delta: float) -> void:
 		state_machine.change_state("Jump1")
 		return
 
-	state_machine.atkInputEvent({ "is_run": true })
+	state_machine.atkInputEvent()
 
-	
 	if player.velocity.y > 0:
 		state_machine.change_state("Fall")
 		return

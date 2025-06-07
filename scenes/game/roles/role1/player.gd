@@ -20,9 +20,9 @@ var direction := 1:
 var jump_count := 2
 
 @onready var state_machine: StateMachine = $StateMachine
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var graphics: Node2D = $Graphics
 @onready var jump_buffer_timer: Timer = $JumpBufferTimer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
@@ -44,9 +44,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func change_anim(_name, callback = null) -> void:
-	animation_player.play(_name)
-	if not animation_player.get_animation(_name).loop_mode && callback:
+func change_anim(_name: String, library: String = "", callback = null) -> void:
+	var anima
+	if not library.is_empty():
+		animation_player.play(library + "/" + _name)
+		anima = animation_player.get_animation_library(library).get_animation(_name)
+	else:
+		animation_player.play(_name)
+		anima = animation_player.get_animation(_name)
+
+	if anima.loop_mode && callback:
 		await animation_player.animation_finished
 		callback.call()
 

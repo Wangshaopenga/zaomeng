@@ -7,7 +7,7 @@ func enter(params := {}) -> void:
 
 
 func update(delta: float) -> void:
-	
+
 	if player.velocity.y > 0:
 		player.jump_count = 1
 		state_machine.change_state("Fall")
@@ -17,10 +17,10 @@ func update(delta: float) -> void:
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 		state_machine.change_state("Run")
 		return
-		
+
 	# 检测跳跃
 	if Input.is_action_just_pressed("jump"):
 		state_machine.change_state("Jump1")
 		return
-		
+
 	state_machine.atkInputEvent()

@@ -16,7 +16,7 @@ func enter(params := {}) -> void:
 		attack_index = 2
 	else:
 		player.velocity.x = 0
-	player.animation_player.play("attack%d" % attack_index)
+	player.change_anim("attack%d" % attack_index, "attack")
 
 
 func update(delta: float) -> void:
