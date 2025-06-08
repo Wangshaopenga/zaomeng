@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://btpyd681w8v4s"]
+[gd_scene load_steps=9 format=3 uid="uid://caol1ruvc0du5"]
 
 [ext_resource type="Texture2D" uid="uid://dlh3lokliwi46" path="res://assets/HeroPicture/RoleProperiesBox/408.png" id="1_fkesc"]
 [ext_resource type="FontFile" uid="uid://2rjpff4w8bmb" path="res://assets/Font/华康海报体W12 &amp; 华康海报体W12(P).ttc" id="2_8ee8s"]
@@ -8,6 +8,32 @@
 [ext_resource type="Texture2D" uid="uid://brt2fqd0govpx" path="res://assets/HeroPicture/RoleProperiesBox/742.png" id="6_rrrff"]
 [ext_resource type="Texture2D" uid="uid://d1u3mka385hqt" path="res://assets/HeroPicture/RoleProperiesBox/748.png" id="7_sl10k"]
 
+[sub_resource type="GDScript" id="GDScript_fkesc"]
+script/source = "extends Control
+
+@export var stats: RoleStats
+
+@onready var hp_bar: TextureProgressBar = $Bar/HP
+@onready var mp_bar: TextureProgressBar = $Bar/MP
+@onready var exp_bar: TextureProgressBar = $Bar/EXP
+
+
+func _ready() -> void:
+	pass
+	#stats.hp_change.connect(update_hp)
+	#stats.mp_change.connect(update_mp)
+	#update_hp()
+	#update_mp()
+
+
+func update_hp() -> void:
+	var percentage := stats.hp / float(stats.max_hp)
+	hp_bar.value = percentage
+func update_mp() -> void:
+	var percentage := stats.mp / float(stats.max_mp)
+	mp_bar.value = percentage
+"
+
 [node name="Stats" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -15,6 +41,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_fkesc")
 
 [node name="Bg" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(228, 88)
@@ -72,6 +99,24 @@ theme_override_fonts/font = ExtResource("2_8ee8s")
 theme_override_font_sizes/font_size = 14
 text = "61/80"
 
+[node name="Regen" type="Label" parent="Bar/HP"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_top = -0.167
+anchor_right = 0.604
+anchor_bottom = 1.083
+offset_left = 54.456
+offset_top = 0.00400019
+offset_right = 54.024
+offset_bottom = 0.00399971
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_8ee8s")
+theme_override_font_sizes/font_size = 14
+text = "12/s"
+
 [node name="MP" type="TextureProgressBar" parent="Bar"]
 layout_mode = 2
 offset_left = -2.0
@@ -99,6 +144,24 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_8ee8s")
 theme_override_font_sizes/font_size = 14
 text = "61/80"
+
+[node name="Regen" type="Label" parent="Bar/MP"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_top = -0.167
+anchor_right = 0.604
+anchor_bottom = 1.083
+offset_left = 53.456
+offset_top = -0.996
+offset_right = 73.348
+offset_bottom = -0.996
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_8ee8s")
+theme_override_font_sizes/font_size = 14
+text = "12/s"
 
 [node name="EXP" type="TextureProgressBar" parent="Bar"]
 layout_mode = 2

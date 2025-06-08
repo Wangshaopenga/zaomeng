@@ -20,6 +20,10 @@ run/main_scene="uid://cfu5q44serobl"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://xjj714byivcg"
 
+[autoload]
+
+PlayerData="*res://script/global/PlayerData.gd"
+
 [debug]
 
 gdscript/warnings/unassigned_variable=0

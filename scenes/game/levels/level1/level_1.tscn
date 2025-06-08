@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://cfu5q44serobl"]
 
-[ext_resource type="Script" uid="uid://crilynnb8atwt" path="res://scenes/game/levels/level1/level_1.gd" id="1_kdlgo"]
+[ext_resource type="Script" uid="uid://crilynnb8atwt" path="res://script/levels/level1/level_1.gd" id="1_kdlgo"]
 [ext_resource type="Texture2D" uid="uid://i30tugaq07w8" path="res://assets/Level/Level_1/183.png" id="1_x1c7m"]
 [ext_resource type="Texture2D" uid="uid://dexoawty5edc1" path="res://assets/Level/Level_1/19_1.png" id="2_kdlgo"]
 [ext_resource type="Texture2D" uid="uid://cxpfeih5koq67" path="res://assets/Level/Level_1/48.png" id="3_1bryu"]
 [ext_resource type="PackedScene" uid="uid://ljsqbl6c2r0c" path="res://scenes/game/roles/role1/role1.tscn" id="6_cpjtn"]
 [ext_resource type="PackedScene" uid="uid://d04mcdpy4n1uy" path="res://scenes/game/levels/level1/Ememytest.tscn" id="6_uirhy"]
-[ext_resource type="PackedScene" uid="uid://btpyd681w8v4s" path="res://scenes/ui/stats.tscn" id="7_cpjtn"]
-[ext_resource type="PackedScene" uid="uid://b7h8xfw2krwvk" path="res://scenes/ui/function.tscn" id="8_wyvqy"]
+[ext_resource type="PackedScene" uid="uid://b8daaak2budeo" path="res://scenes/ui/components/Info.tscn" id="9_k5nxp"]
+[ext_resource type="Script" uid="uid://dt6xkbuf3kdvb" path="res://script/resource/RoleStats.gd" id="9_yu33w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_unvbt"]
 texture = ExtResource("1_x1c7m")
@@ -95,10 +95,8 @@ limit_bottom = 590
 offset = Vector2(5, 0)
 transform = Transform2D(1, 0, 0, 1, 5, 0)
 
-[node name="Panel" parent="CanvasLayer" instance=ExtResource("7_cpjtn")]
+[node name="Info" parent="CanvasLayer" instance=ExtResource("9_k5nxp")]
 
-[node name="Fuction" parent="CanvasLayer" instance=ExtResource("8_wyvqy")]
-offset_left = 5.0
-offset_top = -156.0
-offset_right = 265.0
-offset_bottom = -23.0
+[node name="RoleStats" type="Node" parent="."]
+script = ExtResource("9_yu33w")
+metadata/_custom_type_script = "uid://dt6xkbuf3kdvb"
