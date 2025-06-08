@@ -20,7 +20,7 @@ func update(delta: float) -> void:
 
 	velocity = player.velocity
 	var dir = Input.get_axis("move_left", "move_right")
-	player.direction = dir
+	player.change_dir(dir)
 	if dir != 0:
 		velocity.x = dir * player.RUN_SPEED
 	else:

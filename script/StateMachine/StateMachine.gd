@@ -4,7 +4,7 @@ extends Node
 # 状态字典
 var states := {}
 var current_state: State
-var player: Player
+var player: BaseHero
 
 
 func _ready() -> void:

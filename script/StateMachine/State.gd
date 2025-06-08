@@ -1,18 +1,26 @@
 class_name State
 extends Node
 
-var state_machine :StateMachine
-var player: Player
+var state_machine: StateMachine
+var player: BaseHero
 
-func init(_state_machine:StateMachine,_player:Player)->void:
+
+func init(_state_machine: StateMachine, _player: BaseHero) -> void:
 	state_machine = _state_machine
 	player = _player
 
-func enter(params := {})->void:
+
+func enter(params := {}) -> void:
 	pass
-func update(delta:float)->void:
+
+
+func update(delta: float) -> void:
 	pass
-func exit()->void:
+
+
+func exit() -> void:
 	pass
+
+
 func preMethod() -> bool:
 	return true
