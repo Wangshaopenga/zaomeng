@@ -75,3 +75,7 @@ func change_dir(dir: int) -> void:
 		direction = Direction.RIGHT
 	elif dir == -1:
 		direction = Direction.LEFT
+
+
+func _on_hurtbox_hurt(hitbox: Hitbox) -> void:
+	print("player has been hurt")
