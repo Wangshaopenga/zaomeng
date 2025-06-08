@@ -18,7 +18,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 config/name="造梦"
 run/main_scene="uid://cfu5q44serobl"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://xjj714byivcg"
 
 [debug]
 

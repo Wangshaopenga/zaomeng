@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://cicpbily2jo3r" path="res://scenes/base/base_hero.tscn" id="1_2q61x"]
 [ext_resource type="Texture2D" uid="uid://dcybdc3mtw7sy" path="res://assets/HeroPicture/Role1AllEquipment/Role_1_Body_Empty.png" id="2_7487x"]
 [ext_resource type="Texture2D" uid="uid://bbswtquhcjgot" path="res://assets/HeroPicture/Role1AllEquipment/Role_1_Eq_Empty.png" id="3_c86ph"]
-[ext_resource type="Texture2D" uid="uid://bsyptgdu6tuu0" path="res://assets/HeroPicture/Role1SpecialEffect/Role1Attack1.png" id="5_8qjbw"]
-[ext_resource type="Texture2D" uid="uid://l7u1ggfmvxtq" path="res://assets/HeroPicture/Role1SpecialEffect/Role1Attack2.png" id="6_o4ova"]
-[ext_resource type="Texture2D" uid="uid://b14fgt5qoqr6h" path="res://assets/HeroPicture/Role1SpecialEffect/Role1Attack3.png" id="7_xo7yj"]
-[ext_resource type="Texture2D" uid="uid://cgwwqclrey8fn" path="res://assets/HeroPicture/Role1SpecialEffect/Role1Attack4.png" id="8_8nh2n"]
+[ext_resource type="Texture2D" uid="uid://dl5n01c82juos" path="res://assets/HeroPicture/Role1SpecialEffect/Role1Attack1.png" id="5_8qjbw"]
+[ext_resource type="Texture2D" uid="uid://dv7jn0x6rhpln" path="res://assets/HeroPicture/Role1SpecialEffect/Role1Attack2.png" id="6_o4ova"]
+[ext_resource type="Texture2D" uid="uid://be6u6lycilh5p" path="res://assets/HeroPicture/Role1SpecialEffect/Role1Attack3.png" id="7_xo7yj"]
+[ext_resource type="Texture2D" uid="uid://ccy6rsw05x68c" path="res://assets/HeroPicture/Role1SpecialEffect/Role1Attack4.png" id="8_8nh2n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c86ph"]
 radius = 17.0
