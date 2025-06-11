@@ -1,56 +1,29 @@
 extends Node
 
-# 血量改变触发
-signal hp_changed
-# 体力改变触发
-signal mp_changed
-# 经验改变触发
-signal exp_changed
-# 角色死亡
-signal player_death
-# 升级
-signal upgrade
-
-@export var max_hp := 100 ## 最大生命值
-@export var max_mp := 999 ## 最大体力值
-@export var max_exp := 100 ## 该等级最大经验值
-@export var grade := 22 ## 人物等级
-@export var hp_regen := 3 ## 被动回血
-@export var mp_regen := 3 ## 被动回蓝
-
-@export var player_atk := 100 ## 玩家基础攻击力
-@export var player_def := 0.0 ## 玩家免伤
-
-
-@export var hp := max_hp: ## 当前生命值
-	set(v):
-		hp = clampi(v, 0, max_hp)
-		hp_changed.emit()
-		if hp == 0:
-			player_death.emit()
-
-@export var mp := max_mp: ## 当前体力值
-	set(v):
-		mp = clampi(v, 0, max_mp)
-		mp_changed.emit()
-
-@export var exp := 0: ## 经验值
-	set(v):
-		exp += v
-		if v >= max_exp:
-			grade += 1
-			upgrade.emit()
-			exp = clampi(exp - max_exp, 0, max_exp - 1)
-		exp_changed.emit()
+@export var max_hp = 100 ## 最大生命值
+@export var current_hp = 0 ## 当前生命值
+@export var max_strength = 99900 ## 最大体力值
+@export var current_strength = 99900 ## 当前体力值
+@export var anger = 999 ## 怒气
+@export var max_anger = 999 ## 怒气
 
 var is_death = false ## 是否死亡
 
 var atk_buff_temp = 0.0 #一次性攻击加成
+@export var player_atk = 100 # 玩家基础攻击力
+@export var player_def = 0.0 # 玩家免伤
 
-#func _physics_process(delta: float) -> void:
-	#if Engine.get_physics_frames() % 25 == 0:
-		#useMp(1)
+# 血量改变触发
+signal on_hp_changed(current,max)
 
+# 体力改变触发
+signal on_strength_changed(current,max)
+
+# 怒气改变触发
+signal on_anger_changed(current)
+
+# 角色死亡
+signal on_player_death()
 
 # 获取玩家伤害
 func getDamage():
@@ -60,40 +33,70 @@ func getDamage():
 		return roundi(new_atk)
 	return roundi(player_atk)
 
+func _physics_process(delta: float) -> void:
+	if Engine.get_physics_frames() % 25 == 0:
+		useStrength(1)
 
 # 回血
 func health(_hp):
 	if is_death:
 		return
-	hp = clampi(hp + _hp, 0, max_hp)
-	hp_changed.emit(hp, max_hp)
-
+	print_debug("回血"+_hp)
+	#EffectUtils.show_floating_text("+%s" %_hp,Game.player.global_position + Vector2(0,-30),{'color':'#87ea6b'})
+	
+	current_hp += _hp
+	if current_hp > max_hp:
+		current_hp = max_hp
+	on_hp_changed.emit(current_hp,max_hp)
 
 # 减少或增加血量
 func useHp(value):
 	if is_death:
 		return
-	hp += value
-	if hp <= 0:
+	current_hp += value
+	if current_hp <= 0:
 		is_death = true
-		player_death.emit()
-	hp_changed.emit(hp, max_hp)
-
+		on_player_death.emit()
+	on_hp_changed.emit(current_hp,max_hp)
 
 # 减少或增加体力
-func useMp(value) -> bool:
+func useStrength(value) -> bool:
 	if value < 0:
-		if mp >= abs(value):
-			mp += value
-			mp_changed.emit(mp, max_mp)
+		if current_strength >= abs(value):
+			current_strength += value
+			on_strength_changed.emit(current_strength,max_strength)
+			return true
+		else:
+			print_debug("体力不足")
+			#MessageBox.alert("体力不足！")
+			return false
+	else:
+		if current_strength + value > max_strength:
+			current_strength = max_strength
+		else:
+			current_strength += value
+		on_strength_changed.emit(current_strength,max_strength)
+		return true
+
+# 增加怒气
+func useAnger(value):
+	if value < 0:
+		if anger >= abs(value):
+			anger += value
+			on_anger_changed.emit(anger)
 			return true
 		else:
 			return false
 	else:
-		hp = clampi(hp, 0, max_hp)
-		mp_changed.emit(mp, max_mp)
-		return true
+		if anger + value > max_anger:
+			anger = max_anger
+		else:
+			anger += value
+		on_anger_changed.emit(anger)
 
 # 使用对应能量
-#func useMp():
-	#pass
+#func useMp(talent:Talent):
+	#if talent.useType == Consts.UseType.STR:
+		#return useStrength(-talent.strength)
+	#elif talent.useType == Consts.UseType.ANG:
+		#return useAnger(-talent.strength)

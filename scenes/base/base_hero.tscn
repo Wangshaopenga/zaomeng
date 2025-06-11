@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bttn54ws25wlo" path="res://script/base/BaseHero.gd" id="1_1kuae"]
 [ext_resource type="Script" uid="uid://bhoea7wr3asos" path="res://script/base/Hurtbox.gd" id="1_1nxcr"]
 [ext_resource type="Script" uid="uid://rd8oj5v71skj" path="res://script/base/Hitbox.gd" id="2_1kuae"]
-[ext_resource type="Script" uid="uid://dlt8ht6ajqcf7" path="res://script/stateMachine/StateMachine.gd" id="3_raqfr"]
-[ext_resource type="Script" uid="uid://1lxgxuu7wi2j" path="res://script/base/BaseHeroState/idle.gd" id="5_dq6o8"]
-[ext_resource type="Script" uid="uid://bmowhl8g0xhch" path="res://script/base/BaseHeroState/run.gd" id="6_cjteo"]
-[ext_resource type="Script" uid="uid://p61fh76epprt" path="res://script/base/BaseHeroState/jump_1.gd" id="7_7e20b"]
-[ext_resource type="Script" uid="uid://b4ebauugxpqn2" path="res://script/base/BaseHeroState/jump_2.gd" id="8_rw8n7"]
-[ext_resource type="Script" uid="uid://bgv884n380q1e" path="res://script/base/BaseHeroState/fall.gd" id="9_nsjig"]
-[ext_resource type="Script" uid="uid://dotdqkqa5l28x" path="res://script/base/BaseHeroState/Attack.gd" id="10_ty4af"]
+[ext_resource type="Script" uid="uid://dlt8ht6ajqcf7" path="res://script/StateMachine/StateMachine.gd" id="3_raqfr"]
+[ext_resource type="Script" uid="uid://1lxgxuu7wi2j" path="res://script/StateMachine/BaseHeroState/IdleState.gd" id="5_dq6o8"]
+[ext_resource type="Script" uid="uid://bmowhl8g0xhch" path="res://script/StateMachine/BaseHeroState/RunState.gd" id="6_cjteo"]
+[ext_resource type="Script" uid="uid://p61fh76epprt" path="res://script/StateMachine/BaseHeroState/Jump1State.gd" id="7_7e20b"]
+[ext_resource type="Script" uid="uid://b4ebauugxpqn2" path="res://script/StateMachine/BaseHeroState/Jump2State.gd" id="8_rw8n7"]
+[ext_resource type="Script" uid="uid://bgv884n380q1e" path="res://script/StateMachine/BaseHeroState/FallState.gd" id="9_nsjig"]
+[ext_resource type="Script" uid="uid://dotdqkqa5l28x" path="res://script/StateMachine/BaseHeroState/AttackState.gd" id="10_ty4af"]
 
 [node name="BaseHero" type="CharacterBody2D"]
 collision_layer = 2
@@ -18,10 +18,13 @@ script = ExtResource("1_1kuae")
 [node name="Graphics" type="Node2D" parent="."]
 
 [node name="Role" type="Sprite2D" parent="Graphics"]
+scale = Vector2(-1, 1)
 
 [node name="Equipment" type="Sprite2D" parent="Graphics"]
+scale = Vector2(-1, 1)
 
 [node name="SpecialEffect" type="Sprite2D" parent="Graphics"]
+scale = Vector2(-1, 1)
 
 [node name="Hurtbox" type="Area2D" parent="Graphics"]
 collision_layer = 8

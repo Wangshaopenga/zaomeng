@@ -39,9 +39,3 @@ func change_state(state_name: String, params = {}) -> void:
 func update(delta):
 	if current_state:
 		current_state.update(delta)
-
-
-func atkInputEvent(params := {}):
-	if Input.is_action_just_pressed("attack"):
-		var attack_index = params.get("attack_index", 1)
-		change_state("Attack", { "attack_index": attack_index })

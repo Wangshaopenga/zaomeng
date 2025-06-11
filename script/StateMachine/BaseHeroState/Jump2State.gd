@@ -1,4 +1,4 @@
-extends State
+class_name BaseJump2State extends State
 
 var velocity = Vector2.ZERO # 水平和垂直速度
 

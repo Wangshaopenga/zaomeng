@@ -1,4 +1,4 @@
-extends State
+class_name BaseAttackState extends State
 
 # 能否进行下段攻击
 var next_attack_requested := false
