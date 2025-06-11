@@ -68,7 +68,7 @@ func update_mp_bar() -> void:
 func update_exp_bar() -> void:
 	#print("update exp")
 	exp_label.text = str(stats.exp) + "/" + str(stats.max_exp)
-	var percentage := stats.exp / stats.max_exp
+	var percentage := stats.exp / float(stats.max_exp)
 	exp_bar.value = percentage
 
 

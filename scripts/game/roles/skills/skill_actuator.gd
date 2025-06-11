@@ -52,7 +52,7 @@ enum {
 	UNEXECUTED = -1,
 ## 未执行
 	NON_EXISTENT = -2,
-## 技能不存在,,,,
+## 技能不存在,,,,,
 }
 
 ## 技能执行阶段。调用 [method add_skill] 时，传入的 [Dictionary] 数据中的 key 如果有这个阶段的值，

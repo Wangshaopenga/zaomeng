@@ -12,5 +12,4 @@ func update(delta: float) -> void:
 
 
 func exit():
-	player.velocity.x = 0
 	state_machine.is_skill_running = false
