@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dej0ogbsmhmyc"]
+
+[ext_resource type="Script" uid="uid://bgmteynj0dpnn" path="res://test/player_test.gd" id="1_bfg5o"]
+[ext_resource type="Script" uid="uid://b3l1tll4bty5s" path="res://test/state_node.gd" id="2_3couv"]
+[ext_resource type="Script" uid="uid://46j2pfvni7qi" path="res://test/skill_actuator.gd" id="3_xfyl1"]
+[ext_resource type="Script" uid="uid://dgb4yyse6emnr" path="res://test/platform_controller.gd" id="4_vui5k"]
+[ext_resource type="PackedScene" uid="uid://ljsqbl6c2r0c" path="res://scenes/game/roles/role1.tscn" id="5_x8lff"]
+
+[node name="PlayerTest" type="Node2D"]
+script = ExtResource("1_bfg5o")
+
+[node name="StateNode" type="Node" parent="."]
+script = ExtResource("2_3couv")
+
+[node name="SkillActuator" type="Node" parent="."]
+script = ExtResource("3_xfyl1")
+
+[node name="PlatformController" type="Node2D" parent="."]
+script = ExtResource("4_vui5k")
+
+[node name="Role1" parent="." instance=ExtResource("5_x8lff")]

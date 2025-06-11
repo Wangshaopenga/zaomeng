@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=3 uid="uid://b8daaak2budeo"]
 
 [ext_resource type="Texture2D" uid="uid://ulkef1qy02i4" path="res://assets/HeroPicture/RoleProperiesBox/712.png" id="1_5e21y"]
-[ext_resource type="Script" uid="uid://d075773i0sd6q" path="res://script/ui/components/info.gd" id="1_1505a"]
+[ext_resource type="Script" uid="uid://d075773i0sd6q" path="res://scripts/ui/components/Information.gd" id="1_1505a"]
 [ext_resource type="Texture2D" uid="uid://cq3ast6oeyx31" path="res://assets/HeroPicture/RoleProperiesBox/718.png" id="2_rr7ip"]
 [ext_resource type="Texture2D" uid="uid://csqoh3uwsnipp" path="res://assets/HeroPicture/RoleProperiesBox/720.png" id="3_52f0n"]
 [ext_resource type="Texture2D" uid="uid://cuo4qrncgdavd" path="res://assets/HeroPicture/RoleProperiesBox/724.png" id="4_42xhv"]
