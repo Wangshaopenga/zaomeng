@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://dkuv1uakcly7q"]
+
+[ext_resource type="Script" uid="uid://ba5xo2pnei4h6" path="res://scripts/resource/Effects.gd" id="1_uars3"]
+[ext_resource type="Script" uid="uid://cssl517yvaggx" path="res://scripts/resource/Attribute.gd" id="2_xb2q7"]
+[ext_resource type="Texture2D" uid="uid://bjnxricqggwas" path="res://assets/Skill/Panel/76-Shove-Stab.png" id="3_3kni6"]
+[ext_resource type="Script" uid="uid://bqalsii2hfddp" path="res://scripts/resource/Skill.gd" id="4_y8y24"]
+
+[sub_resource type="Resource" id="Resource_fxm4n"]
+script = ExtResource("2_xb2q7")
+attribute = "atk"
+value = 25
+effect_type = 0
+buff_type = 0
+metadata/_custom_type_script = "uid://cssl517yvaggx"
+
+[resource]
+script = ExtResource("4_y8y24")
+id = "wukong_0"
+name = "基础"
+mp = 0
+description = "一切一切的基础"
+type = 0
+icon = ExtResource("3_3kni6")
+max_level = 0
+effects = Array[ExtResource("1_uars3")]([SubResource("Resource_fxm4n")])
+prerequisites = Array[ExtResource("4_y8y24")]([])
+position = Vector2(480, 480)
+branches = []
+bindKye = ""
+metadata/_custom_type_script = "uid://bqalsii2hfddp"

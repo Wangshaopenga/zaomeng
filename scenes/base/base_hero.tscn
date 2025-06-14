@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://cicpbily2jo3r"]
+[gd_scene load_steps=12 format=3 uid="uid://cicpbily2jo3r"]
 
-[ext_resource type="Script" uid="uid://bttn54ws25wlo" path="res://script/base/BaseHero.gd" id="1_1kuae"]
-[ext_resource type="Script" uid="uid://bhoea7wr3asos" path="res://script/base/Hurtbox.gd" id="1_1nxcr"]
-[ext_resource type="Script" uid="uid://rd8oj5v71skj" path="res://script/base/Hitbox.gd" id="2_1kuae"]
-[ext_resource type="Script" uid="uid://dlt8ht6ajqcf7" path="res://script/StateMachine/StateMachine.gd" id="3_raqfr"]
-[ext_resource type="Script" uid="uid://1lxgxuu7wi2j" path="res://script/StateMachine/BaseHeroState/IdleState.gd" id="5_dq6o8"]
-[ext_resource type="Script" uid="uid://bmowhl8g0xhch" path="res://script/StateMachine/BaseHeroState/RunState.gd" id="6_cjteo"]
-[ext_resource type="Script" uid="uid://p61fh76epprt" path="res://script/StateMachine/BaseHeroState/Jump1State.gd" id="7_7e20b"]
-[ext_resource type="Script" uid="uid://b4ebauugxpqn2" path="res://script/StateMachine/BaseHeroState/Jump2State.gd" id="8_rw8n7"]
-[ext_resource type="Script" uid="uid://bgv884n380q1e" path="res://script/StateMachine/BaseHeroState/FallState.gd" id="9_nsjig"]
-[ext_resource type="Script" uid="uid://dotdqkqa5l28x" path="res://script/StateMachine/BaseHeroState/AttackState.gd" id="10_ty4af"]
+[ext_resource type="Script" uid="uid://bttn54ws25wlo" path="res://scripts/base/BaseHero.gd" id="1_1kuae"]
+[ext_resource type="Script" uid="uid://bhoea7wr3asos" path="res://scripts/base/Hurtbox.gd" id="1_1nxcr"]
+[ext_resource type="Script" uid="uid://rd8oj5v71skj" path="res://scripts/base/Hitbox.gd" id="2_1kuae"]
+[ext_resource type="Script" uid="uid://dlt8ht6ajqcf7" path="res://scripts/StateMachine/StateMachine.gd" id="3_raqfr"]
+[ext_resource type="Script" uid="uid://1lxgxuu7wi2j" path="res://scripts/StateMachine/BaseHeroState/IdleState.gd" id="5_dq6o8"]
+[ext_resource type="Script" uid="uid://bmowhl8g0xhch" path="res://scripts/StateMachine/BaseHeroState/RunState.gd" id="6_cjteo"]
+[ext_resource type="Script" uid="uid://p61fh76epprt" path="res://scripts/StateMachine/BaseHeroState/Jump1State.gd" id="7_7e20b"]
+[ext_resource type="Script" uid="uid://b4ebauugxpqn2" path="res://scripts/StateMachine/BaseHeroState/Jump2State.gd" id="8_rw8n7"]
+[ext_resource type="Script" uid="uid://bgv884n380q1e" path="res://scripts/StateMachine/BaseHeroState/FallState.gd" id="9_nsjig"]
+[ext_resource type="Script" uid="uid://dotdqkqa5l28x" path="res://scripts/StateMachine/BaseHeroState/AttackState.gd" id="10_ty4af"]
+[ext_resource type="Script" uid="uid://cik3ofga87gox" path="res://scripts/StateMachine/BaseHeroState/SkillState.gd" id="11_cjteo"]
 
 [node name="BaseHero" type="CharacterBody2D"]
 collision_layer = 2
@@ -70,6 +71,8 @@ metadata/_custom_type_script = "uid://cud07j8c2hhxy"
 script = ExtResource("7_7e20b")
 metadata/_custom_type_script = "uid://cud07j8c2hhxy"
 
+[node name="JumpBufferTimer" type="Timer" parent="StateMachine/Jump1"]
+
 [node name="Jump2" type="Node" parent="StateMachine"]
 script = ExtResource("8_rw8n7")
 metadata/_custom_type_script = "uid://cud07j8c2hhxy"
@@ -82,4 +85,6 @@ metadata/_custom_type_script = "uid://cud07j8c2hhxy"
 script = ExtResource("10_ty4af")
 metadata/_custom_type_script = "uid://cud07j8c2hhxy"
 
-[node name="JumpBufferTimer" type="Timer" parent="."]
+[node name="SkillState" type="Node" parent="StateMachine"]
+script = ExtResource("11_cjteo")
+metadata/_custom_type_script = "uid://cud07j8c2hhxy"

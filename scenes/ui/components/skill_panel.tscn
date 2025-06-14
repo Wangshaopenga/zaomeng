@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0iu0qxfsdmnl"]
+
+[ext_resource type="Script" uid="uid://caxlepoayeiqp" path="res://scripts/ui/components/skill_panel.gd" id="1_m83mt"]
+[ext_resource type="PackedScene" uid="uid://bbqvoef4e3x3d" path="res://scenes/ui/components/skillTreeButton.tscn" id="2_cwk13"]
+[ext_resource type="Resource" uid="uid://dkuv1uakcly7q" path="res://scripts/game/roles/role1/skills/wukomg_0.tres" id="3_tulss"]
+[ext_resource type="Resource" uid="uid://elkxc7t3bv7q" path="res://scripts/game/roles/role1/skills/wokong_1.tres" id="4_uj5wu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0k7wx"]
+
+[node name="SkillPanel" type="Panel"]
+custom_minimum_size = Vector2(1000, 1000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -320.0
+offset_right = -120.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0k7wx")
+script = ExtResource("1_m83mt")
+
+[node name="基础" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+skill = ExtResource("3_tulss")
+
+[node name="Button" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 661.0
+offset_top = 377.0
+offset_right = 741.0
+offset_bottom = 457.0
+skill = ExtResource("4_uj5wu")

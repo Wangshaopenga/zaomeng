@@ -1,0 +1,185 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3m8mkt566n57"]
+
+[ext_resource type="Texture2D" uid="uid://dlh3lokliwi46" path="res://assets/HeroPicture/RoleProperiesBox/408.png" id="1_acm7d"]
+[ext_resource type="Script" uid="uid://ciu6cdhl8fmni" path="res://scripts/ui/components/stats_bar.gd" id="1_myjqj"]
+[ext_resource type="Texture2D" uid="uid://cby6a6k8con1t" path="res://assets/HeroPicture/RoleProperiesBox/swk.png" id="2_xxtok"]
+[ext_resource type="Texture2D" uid="uid://oxravxb5lw2s" path="res://assets/HeroPicture/RoleProperiesBox/345.png" id="3_nej3u"]
+[ext_resource type="FontFile" uid="uid://2rjpff4w8bmb" path="res://assets/Font/华康海报体W12 &amp; 华康海报体W12(P).ttc" id="4_pnf8s"]
+[ext_resource type="Texture2D" uid="uid://dauwh87x7fyo3" path="res://assets/HeroPicture/RoleProperiesBox/739.png" id="5_jgi5x"]
+[ext_resource type="Texture2D" uid="uid://brt2fqd0govpx" path="res://assets/HeroPicture/RoleProperiesBox/742.png" id="6_06i16"]
+[ext_resource type="Texture2D" uid="uid://d1u3mka385hqt" path="res://assets/HeroPicture/RoleProperiesBox/748.png" id="7_sf006"]
+
+[node name="TopLeftBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_right = 45.0
+offset_bottom = 40.0
+script = ExtResource("1_myjqj")
+
+[node name="Bg" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(228, 88)
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 88.0
+texture = ExtResource("1_acm7d")
+
+[node name="Avatar" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 1.0
+offset_right = 92.0
+offset_bottom = 77.0
+texture = ExtResource("2_xxtok")
+
+[node name="Bar" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.089
+anchor_top = 0.019
+anchor_right = 0.243
+anchor_bottom = 0.115
+offset_left = 80.44
+offset_top = 15.24
+offset_right = 79.68
+offset_bottom = 11.4
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HPBar" type="TextureProgressBar" parent="Bar"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 142.0
+offset_bottom = 10.0
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_progress = ExtResource("3_nej3u")
+
+[node name="Hp" type="Label" parent="Bar/HPBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_top = -0.167
+anchor_right = 0.604
+anchor_bottom = 1.083
+offset_left = 0.455997
+offset_top = 0.00400019
+offset_right = 0.0239944
+offset_bottom = 0.00399971
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_pnf8s")
+theme_override_font_sizes/font_size = 14
+text = "66/66"
+
+[node name="HpRegen" type="Label" parent="Bar/HPBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_top = -0.167
+anchor_right = 0.604
+anchor_bottom = 1.083
+offset_left = 59.456
+offset_top = 0.00399995
+offset_right = 59.024
+offset_bottom = 0.00400066
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_pnf8s")
+theme_override_font_sizes/font_size = 14
+text = "1/s"
+
+[node name="MPBar" type="TextureProgressBar" parent="Bar"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = 18.0
+offset_right = 142.0
+offset_bottom = 30.0
+size_flags_horizontal = 0
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_progress = ExtResource("5_jgi5x")
+
+[node name="Mp" type="Label" parent="Bar/MPBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_top = -0.167
+anchor_right = 0.604
+anchor_bottom = 1.083
+offset_left = 0.455997
+offset_top = 0.00399995
+offset_right = 0.0239944
+offset_bottom = 0.00400066
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_pnf8s")
+theme_override_font_sizes/font_size = 14
+text = "66/66"
+
+[node name="MpRegen" type="Label" parent="Bar/MPBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_top = -0.167
+anchor_right = 0.604
+anchor_bottom = 1.083
+offset_left = 58.456
+offset_top = -0.996
+offset_right = 54.024
+offset_bottom = -0.995999
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_pnf8s")
+theme_override_font_sizes/font_size = 14
+text = "1/s"
+
+[node name="EXPBar" type="TextureProgressBar" parent="Bar"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = 37.0
+offset_right = 142.0
+offset_bottom = 49.0
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_progress = ExtResource("6_06i16")
+
+[node name="Exp" type="Label" parent="Bar/EXPBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_top = -0.167
+anchor_right = 0.604
+anchor_bottom = 1.083
+offset_left = 0.455997
+offset_top = 0.00399995
+offset_right = 0.0239944
+offset_bottom = 0.00400162
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_pnf8s")
+theme_override_font_sizes/font_size = 14
+text = "66/66"
+
+[node name="Info" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 17.0
+offset_right = 101.0
+offset_bottom = 63.0
+texture = ExtResource("7_sf006")
+
+[node name="Grade" type="Label" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 50.0
+offset_right = 39.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("4_pnf8s")
+theme_override_font_sizes/font_size = 16
+text = "22"
+horizontal_alignment = 1
+vertical_alignment = 1

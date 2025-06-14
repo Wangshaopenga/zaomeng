@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqcp0ew3gsadf"]
+
+[ext_resource type="PackedScene" uid="uid://doidx8v41gqfu" path="res://scenes/ui/main_ui.tscn" id="1_8jvpl"]
+
+[node name="GameUI" type="CanvasLayer"]
+
+[node name="InputUi(to support phone)" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainUI" parent="." instance=ExtResource("1_8jvpl")]

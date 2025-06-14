@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b1a5m43viy4mk" path="res://scenes/game/levels/level1/ememytest.gd" id="1_aku7s"]
 [ext_resource type="Texture2D" uid="uid://g6yq1sgxghnb" path="res://assets/HeroPicture/Role2AllEquipment/Role_2_Body_bsp.png" id="1_amxad"]
-[ext_resource type="Script" uid="uid://bhoea7wr3asos" path="res://script/base/Hurtbox.gd" id="2_wd1fo"]
-[ext_resource type="Script" uid="uid://rd8oj5v71skj" path="res://script/base/Hitbox.gd" id="3_g65m0"]
-[ext_resource type="Script" uid="uid://bsj4dkjcmuwy0" path="res://script/resource/EnemyStats.gd" id="4_g65m0"]
+[ext_resource type="Script" uid="uid://bhoea7wr3asos" path="res://scripts/base/Hurtbox.gd" id="2_wd1fo"]
+[ext_resource type="Script" uid="uid://rd8oj5v71skj" path="res://scripts/base/Hitbox.gd" id="3_g65m0"]
+[ext_resource type="Script" uid="uid://bsj4dkjcmuwy0" path="res://scripts/resource/EnemyStats.gd" id="4_g65m0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aku7s"]
 size = Vector2(58, 98)

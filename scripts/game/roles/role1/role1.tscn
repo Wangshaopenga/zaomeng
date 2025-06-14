@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://7wpj4qhg4uid"]
+
+[ext_resource type="Script" uid="uid://bttn54ws25wlo" path="res://scripts/base/BaseHero.gd" id="1_vgcnu"]
+
+[node name="Role1" type="CharacterBody2D"]
+script = ExtResource("1_vgcnu")
+metadata/_custom_type_script = "uid://bttn54ws25wlo"
