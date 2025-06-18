@@ -27,7 +27,7 @@ func change_state(state_name: String, params = {}) -> void:
 	if not pre_state.preMethod():
 		return
 	if current_state:
-		#print_debug(current_state.name + "=>" + state_name)
+		#print_debug("[%s] %s => %s" % [owner.name, current_state.name, state_name])
 		current_state.exit()
 	current_state = pre_state
 	if current_state:

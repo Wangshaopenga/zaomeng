@@ -5,7 +5,7 @@ extends Control
 @onready var skill: TextureButton = $Button/Skill
 @onready var bag: TextureButton = $Button/Bag
 @onready var settings: TextureButton = $Button/settings
-@onready var skills_ui: Control = $"../SkillsUI"
+@onready var skills_ui: Control = $"../../SkillsUI"
 
 
 func _on_skill_pressed() -> void:

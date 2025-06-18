@@ -14,8 +14,11 @@ func update(delta: float) -> void:
 	if player.is_on_floor():
 		velocity.y = player.JUMP_VELOCITY
 
-	if Input.is_action_just_pressed("jump") and player.jump_count > 0:
-		state_machine.change_state("Jump2")
+	if Input.is_action_just_pressed("jump"):
+		print_debug(player.jump_count)
+
+		if player.jump_count > 0:
+			state_machine.change_state("Jump2")
 		return
 
 	if velocity.y > 0:

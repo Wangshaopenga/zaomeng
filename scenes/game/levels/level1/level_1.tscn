@@ -95,3 +95,6 @@ drag_top_margin = 1.0
 drag_bottom_margin = 1.0
 
 [node name="GameUI" parent="." instance=ExtResource("8_wyvqy")]
+
+[node name="EffectNodes" type="Node2D" parent="."]
+z_index = 1

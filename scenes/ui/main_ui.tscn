@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://doidx8v41gqfu"]
+[gd_scene load_steps=3 format=3 uid="uid://doidx8v41gqfu"]
 
 [ext_resource type="PackedScene" uid="uid://b3m8mkt566n57" path="res://scenes/ui/components/StatsBar.tscn" id="1_5fom4"]
 [ext_resource type="PackedScene" uid="uid://dusbrbtrk3avu" path="res://scenes/ui/components/Functions.tscn" id="2_5yji5"]
-[ext_resource type="PackedScene" uid="uid://d2fq7rs2eobgr" path="res://scenes/ui/skills_ui.tscn" id="4_46cp5"]
 
 [node name="MainUI" type="Control"]
 layout_mode = 3
@@ -13,9 +12,3 @@ offset_bottom = 40.0
 [node name="TopLeftBar" parent="." instance=ExtResource("1_5fom4")]
 
 [node name="Functions" parent="." instance=ExtResource("2_5yji5")]
-
-[node name="SkillsUI" parent="." instance=ExtResource("4_46cp5")]
-visible = false
-layout_mode = 1
-offset_right = 900.0
-offset_bottom = 550.0

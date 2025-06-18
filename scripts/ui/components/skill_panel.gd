@@ -1,7 +1,5 @@
 extends Panel
 
-
-
 var skill_node_dict = {}
 var draw_lines = []
 

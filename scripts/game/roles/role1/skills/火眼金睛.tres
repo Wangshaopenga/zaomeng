@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://c0cgkyp5t8xxn"]
+
+[ext_resource type="Script" uid="uid://ba5xo2pnei4h6" path="res://scripts/resource/Effects.gd" id="1_li3ol"]
+[ext_resource type="Texture2D" uid="uid://c4qdg38ayc763" path="res://assets/Skill/SkillIcon/hyjj.png" id="2_dgty7"]
+[ext_resource type="Script" uid="uid://bqalsii2hfddp" path="res://scripts/resource/Skill.gd" id="3_aicpw"]
+[ext_resource type="Resource" uid="uid://c372pnll2w1el" path="res://scripts/game/roles/role1/skills/火.tres" id="4_thy7m"]
+
+[resource]
+script = ExtResource("3_aicpw")
+id = "hyjj"
+name = "火眼金睛"
+mp = 30
+description = "眼睛变红对最近的怪物造成极大伤害。可通过技能书升级"
+type = 2
+icon = ExtResource("2_dgty7")
+max_level = 3
+effects = Array[ExtResource("1_li3ol")]([])
+prerequisites = Array[ExtResource("3_aicpw")]([ExtResource("4_thy7m")])
+position = Vector2(0, 0)
+branches = []
+bindKye = ""
+metadata/_custom_type_script = "uid://bqalsii2hfddp"

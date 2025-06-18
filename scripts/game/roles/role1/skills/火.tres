@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://c372pnll2w1el"]
+
+[ext_resource type="Script" uid="uid://ba5xo2pnei4h6" path="res://scripts/resource/Effects.gd" id="1_ek0uu"]
+[ext_resource type="Texture2D" uid="uid://bqmh5cpefnxpi" path="res://assets/Skill/Panel/Gear@0.5x.png" id="2_jxj2n"]
+[ext_resource type="Script" uid="uid://bqalsii2hfddp" path="res://scripts/resource/Skill.gd" id="3_2352j"]
+[ext_resource type="Resource" uid="uid://dkuv1uakcly7q" path="res://scripts/game/roles/role1/skills/基础.tres" id="4_nwxlb"]
+
+[resource]
+script = ExtResource("3_2352j")
+id = "huo"
+name = "火"
+mp = 2
+description = "悟空经历太上老君炼丹炉的历练，终于具备可以掌握火系技能的基础"
+type = 0
+icon = ExtResource("2_jxj2n")
+max_level = 0
+effects = Array[ExtResource("1_ek0uu")]([])
+prerequisites = Array[ExtResource("3_2352j")]([ExtResource("4_nwxlb")])
+position = Vector2(0, 0)
+branches = []
+bindKye = ""
+metadata/_custom_type_script = "uid://bqalsii2hfddp"

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://csau7ski0yeqs"]
+
+[ext_resource type="Script" uid="uid://ba5xo2pnei4h6" path="res://scripts/resource/Effects.gd" id="1_qvs43"]
+[ext_resource type="Texture2D" uid="uid://54wdf0768mg8" path="res://assets/Skill/SkillIcon/sx.png" id="2_6vgnk"]
+[ext_resource type="Script" uid="uid://bqalsii2hfddp" path="res://scripts/resource/Skill.gd" id="3_4fbgx"]
+[ext_resource type="Resource" uid="uid://2cw8ux87ugv1" path="res://scripts/game/roles/role1/skills/hp_regen.tres" id="4_87hax"]
+[ext_resource type="Resource" uid="uid://cy4e05xedbgqc" path="res://scripts/game/roles/role1/skills/mp_regen.tres" id="5_1ldkd"]
+
+[resource]
+script = ExtResource("3_4fbgx")
+id = "sx"
+name = "嗜血"
+mp = 0
+description = "被动增加5%吸血和5%暴击效果。白面猿猴掉落2级嗜血技能书：被动增加6%暴击和6%吸血"
+type = 1
+icon = ExtResource("2_6vgnk")
+max_level = 0
+effects = Array[ExtResource("1_qvs43")]([])
+prerequisites = Array[ExtResource("3_4fbgx")]([ExtResource("4_87hax"), ExtResource("5_1ldkd")])
+position = Vector2(0, 0)
+branches = []
+bindKye = ""
+metadata/_custom_type_script = "uid://bqalsii2hfddp"

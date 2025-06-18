@@ -4,10 +4,10 @@ extends Control
 
 # 缩放参数
 var zoom: float = 1.0
-var min_zoom: float = 0.5
+var min_zoom: float = 0.6
 var max_zoom: float = 1.0
 
-# 拖动参数a
+# 拖动参数
 var touch_move: bool = false
 var is_dragging: bool = false
 var last_mouse_position: Vector2

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://xn571d8jmlwp"]
+
+[ext_resource type="Script" uid="uid://ba5xo2pnei4h6" path="res://scripts/resource/Effects.gd" id="1_04iow"]
+[ext_resource type="Script" uid="uid://bqalsii2hfddp" path="res://scripts/resource/Skill.gd" id="2_6k32b"]
+[ext_resource type="Texture2D" uid="uid://cmfakul7fpvs4" path="res://assets/Skill/SkillIcon/blb.png" id="2_xrsui"]
+[ext_resource type="Resource" uid="uid://dkuv1uakcly7q" path="res://scripts/game/roles/role1/skills/基础.tres" id="3_xrsui"]
+
+[resource]
+script = ExtResource("2_6k32b")
+id = "passive"
+name = "被动技能"
+mp = 0
+description = "提升角色基础能力的技能树分支，包括吸血、暴击、生命值、蓝量等多方面强化，为持久战斗提供保障。"
+type = 0
+icon = ExtResource("2_xrsui")
+max_level = 0
+effects = Array[ExtResource("1_04iow")]([])
+prerequisites = Array[ExtResource("2_6k32b")]([ExtResource("3_xrsui")])
+position = Vector2(0, 0)
+branches = []
+bindKye = ""
+metadata/_custom_type_script = "uid://bqalsii2hfddp"

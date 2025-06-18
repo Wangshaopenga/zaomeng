@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://dsrqye5kaeb6r"]
+
+[ext_resource type="Script" uid="uid://ba5xo2pnei4h6" path="res://scripts/resource/Effects.gd" id="1_wodny"]
+[ext_resource type="Texture2D" uid="uid://coojra0hffsj8" path="res://assets/Skill/SkillIcon/hmz.png" id="2_jk046"]
+[ext_resource type="Script" uid="uid://bqalsii2hfddp" path="res://scripts/resource/Skill.gd" id="3_mcaml"]
+[ext_resource type="Resource" uid="uid://dtytmbw1qa7fi" path="res://scripts/game/roles/role1/skills/升龙斩.tres" id="4_usodi"]
+
+[resource]
+script = ExtResource("3_mcaml")
+id = "hmz"
+name = "火魔斩"
+mp = 40
+description = "冲向空中施放火魔九连斩，落地后为最后一斩，造成极高的伤害。可通过技能书升级"
+type = 2
+icon = ExtResource("2_jk046")
+max_level = 0
+effects = Array[ExtResource("1_wodny")]([])
+prerequisites = Array[ExtResource("3_mcaml")]([ExtResource("4_usodi")])
+position = Vector2(890, 590)
+branches = []
+bindKye = ""
+metadata/_custom_type_script = "uid://bqalsii2hfddp"

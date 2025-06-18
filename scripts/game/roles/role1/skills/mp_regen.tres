@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://cy4e05xedbgqc"]
+
+[ext_resource type="Script" uid="uid://ba5xo2pnei4h6" path="res://scripts/resource/Effects.gd" id="1_lokv2"]
+[ext_resource type="Texture2D" uid="uid://3xqxd22rj3th" path="res://assets/Skill/SkillIcon/jsp.png" id="2_ditrt"]
+[ext_resource type="Script" uid="uid://bqalsii2hfddp" path="res://scripts/resource/Skill.gd" id="3_1nn5a"]
+[ext_resource type="Resource" uid="uid://di31m5gqv2ywe" path="res://scripts/game/roles/role1/skills/mp.tres" id="4_2em4d"]
+
+[resource]
+script = ExtResource("3_1nn5a")
+id = "mp_regen"
+name = "mp_regen"
+mp = 0
+description = "被动回蓝"
+type = 1
+icon = ExtResource("2_ditrt")
+max_level = 3
+effects = Array[ExtResource("1_lokv2")]([])
+prerequisites = Array[ExtResource("3_1nn5a")]([ExtResource("4_2em4d")])
+position = Vector2(0, 0)
+branches = []
+bindKye = ""
+metadata/_custom_type_script = "uid://bqalsii2hfddp"

@@ -96,6 +96,7 @@ script = ExtResource("3_qj5ks")
 
 [node name="SkillPanel" parent="Panel/SkillTree" instance=ExtResource("3_mi0qr")]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 1
@@ -229,5 +230,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_pe2b7")
 text = "未设置按键"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="gui_input" from="Panel/SkillTree" to="Panel/SkillTree" method="_on_gui_input"]
 [connection signal="pressed" from="SkillInfo/VBoxContainer/HBoxContainer/Upgrade" to="SkillInfo" method="_on_upgrade_pressed"]
 [connection signal="pressed" from="SkillInfo/VBoxContainer/HBoxContainer/key" to="SkillInfo" method="_on_key_pressed"]

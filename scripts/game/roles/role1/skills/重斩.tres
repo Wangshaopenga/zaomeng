@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://4uy015bvmhes"]
+
+[ext_resource type="Script" uid="uid://ba5xo2pnei4h6" path="res://scripts/resource/Effects.gd" id="1_2676q"]
+[ext_resource type="Texture2D" uid="uid://clqm3poxlidkg" path="res://assets/Skill/SkillIcon/zz.png" id="2_e1gih"]
+[ext_resource type="Script" uid="uid://bqalsii2hfddp" path="res://scripts/resource/Skill.gd" id="3_ps6mo"]
+[ext_resource type="Resource" uid="uid://csjq4ms1bf58o" path="res://scripts/game/roles/role1/skills/斩.tres" id="4_802so"]
+
+[resource]
+script = ExtResource("3_ps6mo")
+id = "zz"
+name = "重斩"
+mp = 40
+description = "蓄气后用力斩杀前方怪物。"
+type = 2
+icon = ExtResource("2_e1gih")
+max_level = 3
+effects = Array[ExtResource("1_2676q")]([])
+prerequisites = Array[ExtResource("3_ps6mo")]([ExtResource("4_802so")])
+position = Vector2(820, 450)
+branches = []
+bindKye = ""
+metadata/_custom_type_script = "uid://bqalsii2hfddp"

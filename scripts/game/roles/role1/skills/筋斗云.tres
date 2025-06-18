@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://y46ft7aell2i"]
+
+[ext_resource type="Script" uid="uid://ba5xo2pnei4h6" path="res://scripts/resource/Effects.gd" id="1_e563n"]
+[ext_resource type="Texture2D" uid="uid://c8alhkwv3teb8" path="res://assets/Skill/SkillIcon/jdy.png" id="2_2kcs3"]
+[ext_resource type="Script" uid="uid://bqalsii2hfddp" path="res://scripts/resource/Skill.gd" id="3_xj8jq"]
+[ext_resource type="Resource" uid="uid://c372pnll2w1el" path="res://scripts/game/roles/role1/skills/火.tres" id="4_4igur"]
+
+[resource]
+script = ExtResource("3_xj8jq")
+id = "jdy"
+name = "筋斗云"
+mp = 30
+description = "召唤筋斗云可以冲向云霄。"
+type = 2
+icon = ExtResource("2_2kcs3")
+max_level = 3
+effects = Array[ExtResource("1_e563n")]([])
+prerequisites = Array[ExtResource("3_xj8jq")]([ExtResource("4_4igur")])
+position = Vector2(0, 0)
+branches = []
+bindKye = ""
+metadata/_custom_type_script = "uid://bqalsii2hfddp"

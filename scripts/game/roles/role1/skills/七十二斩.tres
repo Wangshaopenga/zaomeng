@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://8qlk6kl78l56"]
+
+[ext_resource type="Script" uid="uid://ba5xo2pnei4h6" path="res://scripts/resource/Effects.gd" id="1_xhdxx"]
+[ext_resource type="Texture2D" uid="uid://geuanxf8gxu1" path="res://assets/Skill/SkillIcon/qsez.png" id="2_2gw5y"]
+[ext_resource type="Script" uid="uid://bqalsii2hfddp" path="res://scripts/resource/Skill.gd" id="3_cgl5g"]
+[ext_resource type="Resource" uid="uid://csjq4ms1bf58o" path="res://scripts/game/roles/role1/skills/斩.tres" id="4_01sqy"]
+
+[resource]
+script = ExtResource("3_cgl5g")
+id = "qsez"
+name = "七十二斩"
+mp = 30
+description = "迅速向前冲去，对怪物施展多次攻击，并有概率留下残影。"
+type = 2
+icon = ExtResource("2_2gw5y")
+max_level = 2
+effects = Array[ExtResource("1_xhdxx")]([])
+prerequisites = Array[ExtResource("3_cgl5g")]([ExtResource("4_01sqy")])
+position = Vector2(950, 350)
+branches = []
+bindKye = ""
+metadata/_custom_type_script = "uid://bqalsii2hfddp"

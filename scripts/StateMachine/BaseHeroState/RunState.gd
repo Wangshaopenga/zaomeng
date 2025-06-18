@@ -8,6 +8,9 @@ func enter(params = {}) -> void:
 
 
 func update(delta: float) -> void:
+	if player.is_on_floor():
+		player.jump_count = 2
+	
 	velocity = player.velocity
 
 	if player.velocity.y > 0:
@@ -27,12 +30,16 @@ func update(delta: float) -> void:
 		if player.is_on_floor():
 			state_machine.change_state("Idle")
 	player.velocity = velocity
-	
-	if Input.is_action_just_pressed("jump") and player.jump_count > 0:
-		state_machine.change_state("Jump1")
+
+	if Input.is_action_just_pressed("jump"):
+		print_debug(player.jump_count)
+
+		if player.jump_count > 0:
+			state_machine.change_state("Jump1")
 		return
 
 	player.atkInputEvent()
-	
-func exit()->void :
-		velocity.x = 0
+
+
+func exit() -> void:
+	velocity.x = 0

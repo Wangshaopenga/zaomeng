@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://2cw8ux87ugv1"]
+
+[ext_resource type="Script" uid="uid://ba5xo2pnei4h6" path="res://scripts/resource/Effects.gd" id="1_dnmw7"]
+[ext_resource type="Texture2D" uid="uid://bnvnh0xj7hv" path="res://assets/Skill/SkillIcon/jdz.png" id="2_alhxv"]
+[ext_resource type="Script" uid="uid://bqalsii2hfddp" path="res://scripts/resource/Skill.gd" id="3_31pdx"]
+[ext_resource type="Resource" uid="uid://ctufwiiytligj" path="res://scripts/game/roles/role1/skills/hp.tres" id="4_3k3q3"]
+
+[resource]
+script = ExtResource("3_31pdx")
+id = "hp_regen"
+name = "hp_regen"
+mp = 0
+description = "被动回血"
+type = 1
+icon = ExtResource("2_alhxv")
+max_level = 0
+effects = Array[ExtResource("1_dnmw7")]([])
+prerequisites = Array[ExtResource("3_31pdx")]([ExtResource("4_3k3q3")])
+position = Vector2(0, 0)
+branches = []
+bindKye = ""
+metadata/_custom_type_script = "uid://bqalsii2hfddp"

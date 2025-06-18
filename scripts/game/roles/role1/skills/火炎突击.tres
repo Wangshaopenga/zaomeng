@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://h2qf1volj05h"]
+
+[ext_resource type="Script" uid="uid://ba5xo2pnei4h6" path="res://scripts/resource/Effects.gd" id="1_rr1rx"]
+[ext_resource type="Texture2D" uid="uid://uqqgpu7cvwig" path="res://assets/Skill/SkillIcon/hytj.png" id="2_tbeho"]
+[ext_resource type="Script" uid="uid://bqalsii2hfddp" path="res://scripts/resource/Skill.gd" id="3_0ft2j"]
+[ext_resource type="Resource" uid="uid://c372pnll2w1el" path="res://scripts/game/roles/role1/skills/火.tres" id="4_yyutj"]
+
+[resource]
+script = ExtResource("3_0ft2j")
+id = "hytj"
+name = "火炎突击"
+mp = 0
+description = "打退前方怪物并造成多次伤害"
+type = 2
+icon = ExtResource("2_tbeho")
+max_level = 2
+effects = Array[ExtResource("1_rr1rx")]([])
+prerequisites = Array[ExtResource("3_0ft2j")]([ExtResource("4_yyutj")])
+position = Vector2(0, 0)
+branches = []
+bindKye = ""
+metadata/_custom_type_script = "uid://bqalsii2hfddp"

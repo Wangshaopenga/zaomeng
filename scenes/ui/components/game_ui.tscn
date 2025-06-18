@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqcp0ew3gsadf"]
+[gd_scene load_steps=3 format=3 uid="uid://cqcp0ew3gsadf"]
 
 [ext_resource type="PackedScene" uid="uid://doidx8v41gqfu" path="res://scenes/ui/main_ui.tscn" id="1_8jvpl"]
+[ext_resource type="PackedScene" uid="uid://d2fq7rs2eobgr" path="res://scenes/ui/skills_ui.tscn" id="2_8jvpl"]
 
 [node name="GameUI" type="CanvasLayer"]
 
@@ -11,3 +12,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MainUI" parent="." instance=ExtResource("1_8jvpl")]
+
+[node name="SkillsUI" parent="." instance=ExtResource("2_8jvpl")]
+visible = false

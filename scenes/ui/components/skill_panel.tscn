@@ -1,9 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0iu0qxfsdmnl"]
+[gd_scene load_steps=22 format=3 uid="uid://d0iu0qxfsdmnl"]
 
 [ext_resource type="Script" uid="uid://caxlepoayeiqp" path="res://scripts/ui/components/skill_panel.gd" id="1_m83mt"]
 [ext_resource type="PackedScene" uid="uid://bbqvoef4e3x3d" path="res://scenes/ui/components/skillTreeButton.tscn" id="2_cwk13"]
-[ext_resource type="Resource" uid="uid://dkuv1uakcly7q" path="res://scripts/game/roles/role1/skills/wukomg_0.tres" id="3_tulss"]
-[ext_resource type="Resource" uid="uid://elkxc7t3bv7q" path="res://scripts/game/roles/role1/skills/wokong_1.tres" id="4_uj5wu"]
+[ext_resource type="Resource" uid="uid://dkuv1uakcly7q" path="res://scripts/game/roles/role1/skills/基础.tres" id="3_tulss"]
+[ext_resource type="Resource" uid="uid://csjq4ms1bf58o" path="res://scripts/game/roles/role1/skills/斩.tres" id="4_sodeg"]
+[ext_resource type="Resource" uid="uid://dtytmbw1qa7fi" path="res://scripts/game/roles/role1/skills/升龙斩.tres" id="5_c6rrc"]
+[ext_resource type="Resource" uid="uid://dsrqye5kaeb6r" path="res://scripts/game/roles/role1/skills/火魔斩.tres" id="6_c6rrc"]
+[ext_resource type="Resource" uid="uid://4uy015bvmhes" path="res://scripts/game/roles/role1/skills/重斩.tres" id="7_sdshe"]
+[ext_resource type="Resource" uid="uid://8qlk6kl78l56" path="res://scripts/game/roles/role1/skills/七十二斩.tres" id="8_c6rrc"]
+[ext_resource type="Resource" uid="uid://c372pnll2w1el" path="res://scripts/game/roles/role1/skills/火.tres" id="9_y5tle"]
+[ext_resource type="Resource" uid="uid://ce3dkkbo7psb4" path="res://scripts/game/roles/role1/skills/烈焰闪.tres" id="10_571vg"]
+[ext_resource type="Resource" uid="uid://xn571d8jmlwp" path="res://scripts/game/roles/role1/skills/被动.tres" id="11_g78h4"]
+[ext_resource type="Resource" uid="uid://bb2xhfd4v3j5p" path="res://scripts/game/roles/role1/skills/烈焰风暴.tres" id="11_y5tle"]
+[ext_resource type="Resource" uid="uid://h2qf1volj05h" path="res://scripts/game/roles/role1/skills/火炎突击.tres" id="12_571vg"]
+[ext_resource type="Resource" uid="uid://y46ft7aell2i" path="res://scripts/game/roles/role1/skills/筋斗云.tres" id="13_3b500"]
+[ext_resource type="Resource" uid="uid://c0cgkyp5t8xxn" path="res://scripts/game/roles/role1/skills/火眼金睛.tres" id="14_m4x4i"]
+[ext_resource type="Resource" uid="uid://ctufwiiytligj" path="res://scripts/game/roles/role1/skills/hp.tres" id="16_5h1cw"]
+[ext_resource type="Resource" uid="uid://di31m5gqv2ywe" path="res://scripts/game/roles/role1/skills/mp.tres" id="17_mdl4m"]
+[ext_resource type="Resource" uid="uid://2cw8ux87ugv1" path="res://scripts/game/roles/role1/skills/hp_regen.tres" id="18_8i48p"]
+[ext_resource type="Resource" uid="uid://cy4e05xedbgqc" path="res://scripts/game/roles/role1/skills/mp_regen.tres" id="19_5h1cw"]
+[ext_resource type="Resource" uid="uid://csau7ski0yeqs" path="res://scripts/game/roles/role1/skills/嗜血.tres" id="20_mdl4m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0k7wx"]
 
@@ -12,10 +28,10 @@ custom_minimum_size = Vector2(1000, 1000)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -180.0
-offset_top = -320.0
-offset_right = -120.0
-offset_bottom = 90.0
+offset_left = -54.0
+offset_top = -427.0
+offset_right = 157.0
+offset_bottom = 290.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0k7wx")
@@ -36,10 +52,139 @@ grow_horizontal = 2
 grow_vertical = 2
 skill = ExtResource("3_tulss")
 
-[node name="Button" parent="." instance=ExtResource("2_cwk13")]
+[node name="斩" parent="." instance=ExtResource("2_cwk13")]
 layout_mode = 0
-offset_left = 661.0
-offset_top = 377.0
-offset_right = 741.0
-offset_bottom = 457.0
-skill = ExtResource("4_uj5wu")
+offset_left = 693.0
+offset_top = 464.0
+offset_right = 773.0
+offset_bottom = 544.0
+skill = ExtResource("4_sodeg")
+
+[node name="升龙斩" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 534.0
+offset_right = 923.0
+offset_bottom = 614.0
+skill = ExtResource("5_c6rrc")
+
+[node name="火魔斩" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 978.0
+offset_top = 534.0
+offset_right = 1058.0
+offset_bottom = 614.0
+skill = ExtResource("6_c6rrc")
+
+[node name="重斩" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 395.0
+offset_right = 923.0
+offset_bottom = 475.0
+skill = ExtResource("7_sdshe")
+
+[node name="七十二斩" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 277.0
+offset_right = 923.0
+offset_bottom = 357.0
+pivot_offset = Vector2(-120, 129)
+skill = ExtResource("8_c6rrc")
+
+[node name="火" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 693.0
+offset_top = 773.0
+offset_right = 773.0
+offset_bottom = 853.0
+skill = ExtResource("9_y5tle")
+
+[node name="烈焰闪" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 853.0
+offset_top = 900.0
+offset_right = 933.0
+offset_bottom = 980.0
+skill = ExtResource("10_571vg")
+
+[node name="烈焰风暴" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 993.0
+offset_top = 900.0
+offset_right = 1073.0
+offset_bottom = 980.0
+skill = ExtResource("11_y5tle")
+
+[node name="火炎突击" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 993.0
+offset_top = 766.0
+offset_right = 1073.0
+offset_bottom = 846.0
+skill = ExtResource("12_571vg")
+
+[node name="筋斗云" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 693.0
+offset_top = 969.0
+offset_right = 773.0
+offset_bottom = 1049.0
+skill = ExtResource("13_3b500")
+
+[node name="火眼金睛" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 853.0
+offset_top = 683.0
+offset_right = 933.0
+offset_bottom = 763.0
+skill = ExtResource("14_m4x4i")
+
+[node name="被动" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 616.0
+offset_right = 380.0
+offset_bottom = 696.0
+skill = ExtResource("11_g78h4")
+
+[node name="最大血量" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 481.0
+offset_right = 307.0
+offset_bottom = 561.0
+skill = ExtResource("16_5h1cw")
+
+[node name="最大蓝量" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 772.0
+offset_right = 307.0
+offset_bottom = 852.0
+skill = ExtResource("17_mdl4m")
+
+[node name="回血" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 533.0
+offset_right = 165.0
+offset_bottom = 613.0
+skill = ExtResource("18_8i48p")
+
+[node name="回蓝" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 725.0
+offset_right = 162.0
+offset_bottom = 805.0
+skill = ExtResource("19_5h1cw")
+
+[node name="嗜血" parent="." instance=ExtResource("2_cwk13")]
+layout_mode = 0
+offset_left = -34.0
+offset_top = 633.0
+offset_right = 46.0
+offset_bottom = 713.0
+skill = ExtResource("20_mdl4m")
