@@ -18,14 +18,14 @@ func enter(params := {}) -> void:
 		attack_index = 2
 	else:
 		player.velocity.x = 0
-	player.change_anim("attack%d" % attack_index)
+	player.change_anim("attack%d" % attack_index, finish)
 
 
 func update(delta: float) -> void:
+	# 地面攻击时持续锁定水平速度
 	if not is_air_attack:
-		# 地面攻击时持续锁定水平速度
 		player.velocity.x = 0
-		
+
 	if Input.is_action_just_pressed("jump") and player.jump_count > 0:
 		if player.jump_count == 2:
 			state_machine.change_state("Jump1")
@@ -37,31 +37,21 @@ func update(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and player.atk_combo and not is_air_attack:
 		next_attack_requested = true
 
-	# 动画结束判断连段
-	if not player.animation_player.is_playing():
-		if is_air_attack:
-			state_machine.change_state("Fall")
-			return
 
-		match attack_index:
-			1:
-				if next_attack_requested:
-					state_machine.change_state("Attack", { "attack_index": 2 })
-				else:
-					state_machine.change_state("Idle")
-			2:
-				if next_attack_requested:
-					state_machine.change_state("Attack", { "attack_index": 3 })
-				else:
-					state_machine.change_state("Idle")
-			3:
-				if next_attack_requested:
-					state_machine.change_state("Attack", { "attack_index": 4 })
-				else:
-					state_machine.change_state("Idle")
-			4:
-				state_machine.change_state("Idle")
 
 # 可以打断攻击,减少僵直,如果不想可以把上面jump判断移动到动画播放完之后
 func exit():
 	player.special_effect.visible = false
+
+
+func finish():
+	if is_air_attack:
+		state_machine.change_state("Fall")
+		return
+	if not next_attack_requested or attack_index == 4:
+		state_machine.change_state("Idle")
+		return
+	state_machine.change_state("Attack", { "attack_index": attack_index + 1 })
+
+func attack():
+	print_debug("atk")

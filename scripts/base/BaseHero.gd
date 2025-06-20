@@ -12,25 +12,28 @@ const GRAVITY := 980
 # 人物朝向,-1:左  1:右 
 @export var direction := 1:
 	set(v):
+		if v == 0:
+			return
 		direction = v
 		if not is_node_ready():
 			await ready
-		graphics.scale.x = v
+		## 因为照片默认向左所以取反
+		graphics.scale.x = -v
 
 var is_knocked_back = false # 是否处于击退状态
 var jump_count := 2
+var disable_gravity: bool = false
 
 @onready var state_machine: StateMachine = $StateMachine
 @onready var graphics: Node2D = $Graphics
 @onready var jump_buffer_timer: Timer = $StateMachine/Jump1/JumpBufferTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var special_effect: Sprite2D = $Graphics/SpecialEffect
+@onready var hit_box: Node2D = $Graphics/HitBox
 
 
 func _ready() -> void:
 	state_machine.change_state("Idle")
-	
-	#PlayerData.useHp(100)
 
 
 func _process(delta: float) -> void:
@@ -45,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		on_player_move.emit(velocity)
 
-	if not is_on_floor():
+	if not is_on_floor() and not disable_gravity:
 		velocity.y += GRAVITY * delta
 	else:
 		if jump_buffer_timer.time_left > 0 and jump_count == 2:
@@ -53,10 +56,6 @@ func _physics_process(delta: float) -> void:
 			state_machine.change_state("Jump1")
 			return
 	move_and_slide()
-
-
-func _on_hurtbox_hurt(hitbox: Hitbox) -> void:
-	print("player has been hurt")
 
 
 func change_anim(_name: String, callable = null) -> void:
@@ -83,35 +82,33 @@ func apply_knockback(knockback_force: Vector2, duration: float):
 	velocity = Vector2.ZERO # 停止击退速度
 
 
-func take_damage(damage, enemy: Enemy):
-	if state_machine.current_state.name == 'Parry':
-		#Game.time_scale_frame(0.5,0.05)
-		state_machine.change_state("ParryAtk")
-		enemy.take_damage(10)
-		#Game.knockback(self,enemy,120,-25)
-		return
-	if state_machine.current_state.name == 'Dash':
-		#Game.time_scale_frame(0.2,0.3)
-		return
-	if state_machine.current_state.name == 'Block':
-		state_machine.current_state.doBlock(enemy)
-	else:
-		state_machine.change_state("Hit")
-		var last_damage = roundi(damage * (1 - PlayerData.player_def / 100.0))
-		PlayerData.useHp(-last_damage)
-		#MessageBox.alert("受到伤害-%s" %last_damage)
-		print_debug("受到伤害-%s" %last_damage)
+func take_damage() -> int:
+	print_debug("take damage")
+	return 0
+	#if state_machine.current_state.name == 'Parry':
+		##Game.time_scale_frame(0.5,0.05)
+		#state_machine.change_state("ParryAtk")
+		#enemy.take_damage(10)
+		##Game.knockback(self,enemy,120,-25)
+		#return
+	#if state_machine.current_state.name == 'Dash':
+		##Game.time_scale_frame(0.2,0.3)
+		#return
+	#if state_machine.current_state.name == 'Block':
+		#state_machine.current_state.doBlock(enemy)
+	#else:
+		#state_machine.change_state("Hit")
+		#var last_damage = roundi(damage * (1 - PlayerData.player_def / 100.0))
+		#PlayerData.useHp(-last_damage)
+		##MessageBox.alert("受到伤害-%s" %last_damage)
+		#print_debug("受到伤害-%s" %last_damage)
 
 
 # 设置偏移
 func setAnimOffset(offset):
 	animation_player.offset = offset
 
-
-# 获取攻击范围
-func getAtkChecksArea(_name: String):
-	return null
-	#return atk_checks.get_node(_name)
+	# 获取攻击范围
 
 # 播放对应音效
 #func playAudios(_name:String):
@@ -121,7 +118,7 @@ func getAtkChecksArea(_name: String):
 
 
 # 检测当前范围目标
-func checkHit(_name) -> Array:
+func checkHit(_name: String) -> Array:
 	var enemies = []
 	#var damage = combo_count * 10  # 假设每段伤害递增
 	var attack_range = getAtkChecksArea(_name)
@@ -130,6 +127,10 @@ func checkHit(_name) -> Array:
 			if body.is_in_group("Enemy"):
 				enemies.append(body)
 	return enemies
+
+
+func getAtkChecksArea(_name: String):
+	return hit_box.get_node(_name)
 
 
 # 人物攻击和技能

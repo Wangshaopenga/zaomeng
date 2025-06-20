@@ -11,7 +11,6 @@ func update(delta: float) -> void:
 	velocity = player.velocity
 
 	if Input.is_action_just_pressed("jump"):
-		print_debug(player.jump_count)
 		if player.jump_count > 0:
 			if player.jump_count == 2:
 				state_machine.change_state("Jump1")

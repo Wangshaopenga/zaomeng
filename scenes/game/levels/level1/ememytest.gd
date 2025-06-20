@@ -12,7 +12,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_hurtbox_hurt(hitbox: Hitbox) -> void:
-	stats.hp -= 1
-	print("enemy has been hurt")
-	if stats.hp ==0:
+	var damage = hitbox.owner.take_damage()
+	stats.hp -= damage
+	print_debug("%s hit %s %dhp" % [self.name, hitbox.owner.name, damage])
+	if stats.hp == 0:
 		queue_free()

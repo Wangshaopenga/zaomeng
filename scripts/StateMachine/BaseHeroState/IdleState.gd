@@ -22,8 +22,6 @@ func update(delta: float) -> void:
 
 	# 检测跳跃
 	if Input.is_action_just_pressed("jump"):
-		print_debug(player.jump_count)
-
 		state_machine.change_state("Jump1")
 		return
 

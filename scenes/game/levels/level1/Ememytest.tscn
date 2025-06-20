@@ -16,7 +16,7 @@ size = Vector2(58, 97)
 radius = 17.5
 height = 92.0
 
-[node name="BaseEmemy" type="CharacterBody2D"]
+[node name="BaseEmemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 4
 script = ExtResource("1_aku7s")
 
@@ -53,6 +53,7 @@ shape = SubResource("CapsuleShape2D_po78k")
 
 [node name="EnemyStats" type="Node" parent="."]
 script = ExtResource("4_g65m0")
+max_hp = 10
 metadata/_custom_type_script = "uid://bsj4dkjcmuwy0"
 
 [connection signal="hurt" from="Graphics/Hurtbox" to="." method="_on_hurtbox_hurt"]
